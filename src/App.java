@@ -13,11 +13,8 @@ public class App {
             ProcessBuilder builder = new ProcessBuilder("java","-cp", rutaClases,"Tarea1");
 
             // Redireccionar las entradas y salidas del proceso hijo a las del proceso actual.
-            builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-            builder.redirectInput(ProcessBuilder.Redirect.INHERIT);
-            // Redireccionar también el flujo de errores.
-            builder.redirectErrorStream(true);
-
+            builder.inheritIO();
+            
             // Inicia el proceso
             Process proceso = builder.start();
 
