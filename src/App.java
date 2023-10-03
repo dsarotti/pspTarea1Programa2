@@ -9,13 +9,13 @@ public class App {
         // Especificar la ruta a la carpeta con las clases
         final String rutaClases = ".\\bin";
         try {
-            // Crea un objeto ProcessBuilder
-            //ProcessBuilder builder = new ProcessBuilder("java", "-jar", rutaJar);
+            // Crea un objeto ProcessBuilder para ejecutar las clases del programa externo.
             ProcessBuilder builder = new ProcessBuilder("java","-cp", rutaClases,"Tarea1");
 
             // Redireccionar las entradas y salidas del proceso hijo a las del proceso actual.
             builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
             builder.redirectInput(ProcessBuilder.Redirect.INHERIT);
+            // Redireccionar también el flujo de errores.
             builder.redirectErrorStream(true);
 
             // Inicia el proceso
